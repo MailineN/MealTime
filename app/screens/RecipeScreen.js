@@ -1,28 +1,27 @@
 import React from 'react';
-import { Button, ImageBackground, StyleSheet, View, SafeAreaView, ComponentProvider } from 'react-native';
+import { Button, ImageBackground, StyleSheet, View, SafeAreaView } from 'react-native';
 import RandomRecipe from "../client/RandomRecipe";
 
 function RecipeScreen({ navigation }) {
     return (
-      <ImageBackground 
-      style={styles.background}
-      source={require('../assets/background.jpg')}>
-        <SafeAreaView>
+      <SafeAreaView style={styles.background}>
+        <View>
           <RandomRecipe/>
-        </SafeAreaView>
-        <View style={styles.button}>
-          <Button 
-            color="sienna"
-            title="Back"
-            onPress={() => navigation.navigate('Welcome')}/>
         </View>
-      </ImageBackground>
+        <View style={styles.button}>
+            <Button 
+              color="sienna"
+              title="Back"
+              onPress={() => navigation.navigate('Welcome')}/>
+        </View>
+      </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    backgroundColor: "#fff",
     justifyContent: "flex-end",
     alignItems: "center",
   },

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView, Text, ScrollView, View } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, ScrollView, View, Image, FlatList } from 'react-native';
 
 class RandomRecipe extends Component {
   state = {
-      post: {}
+      data: {},
   }
 
   componentDidMount() {
@@ -12,18 +12,22 @@ class RandomRecipe extends Component {
           return response.json()
         })
       .then((result) => {
-        this.setState({ post: result.recipes['0'] });
+        this.setState({ data: result.recipes['0'] });
       })
   }
 
   render() {
     return (
       <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <Section title={this.state.post.title}/>
-          <Section title="Recipe" description={this.state.post.summary}>
-          </Section>
-        </ScrollView>
+        <View contentInsetAdjustmentBehavior="automatic">
+          <Section title={this.state.data.title}/>
+          <Section title={"For "+{this:this.state.data.servings}.toString()+" people :"}/>
+          {/*<Image source={{uri: {this:this.state.data.image}}}/>*/}
+          {/*<FlatList 
+            data={{this:this.state.data.extendedIngredients}}
+            renderItem={({ingredient}) => <Text>{ingredient.name}</Text>}/>*/}
+          <Section title="Instructions :" description={this.state.data.instructions}/>
+        </View>
       </SafeAreaView>
     );
   }
@@ -55,6 +59,12 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
 })
 
