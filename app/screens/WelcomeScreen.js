@@ -12,6 +12,12 @@ function WelcomeScreen({ navigation }) {
             title="Enter"
             onPress={() => navigation.navigate('Recipe')}/>
         </View>
+        <View style={styles.button}>
+          <Button 
+            color="sienna"
+            title="Tags"
+            onPress={() => navigation.navigate('Tags')}/>
+        </View>
       </ImageBackground>
   );
 }
@@ -24,7 +30,8 @@ const styles = StyleSheet.create({
   button: {
     width: 100,
     height: 100,
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
     top: 200
   },
 })

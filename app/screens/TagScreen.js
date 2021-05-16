@@ -1,26 +1,30 @@
 import React from 'react';
-import { Button, ImageBackground, StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Text, Button, ImageBackground, StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native';
 
-function RecipeScreen({ navigation }) {
+function TagScreen({ navigation }) {
     return (
-      <SafeAreaView style={styles.background}>
+      <SafeAreaView style={tagStyles.background}>
+        <Text style={tagStyles.titleStyle}>Choose your tags :
+        </Text>
+        <View style={{ marginVertical: 20 }}></View>
         <View style={{ flexDirection: "row" }}>
-            <View style ={[listStyles.tagsContainer]}>
-                <Text style = {styles.tagTitle}>Veggie</Text>
+            <View style ={[tagStyles.tagsContainer]}>
+                <Text style = {tagStyles.tagTitle}>Veggie</Text>
             </View>
-            <View style ={[listStyles.tagsContainer]}>
-                <Text style = {styles.tagTitle}>Dessert</Text>
+            <View style ={[tagStyles.tagsContainer]}>
+                <Text style = {tagStyles.tagTitle}>Dessert</Text>
             </View>
         </View>
         <View style={{ flexDirection: "row" }}>
-            <View style ={[listStyles.tagsContainer]}>
-                <Text style = {styles.tagTitle}>Dairy Free</Text>
+            <View style ={[tagStyles.tagsContainer]}>
+                <Text style = {tagStyles.tagTitle}>Dairy Free</Text>
             </View>
-            <View style ={[listStyles.tagsContainer]}>
-                <Text style = {styles.tagTitle}>Fitness Friendly</Text>
+            <View style ={[tagStyles.tagsContainer]}>
+                <Text style = {tagStyles.tagTitle}>Fitness Friendly</Text>
             </View>
         </View>
-        <View style={styles.button}>
+        <View style={{ marginVertical: 150 }}></View>
+        <View style={tagStyles.button}>
             <Button 
               color="sienna"
               title="Back"
@@ -30,7 +34,7 @@ function RecipeScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
+const tagStyles = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: "#e09c2c",
@@ -41,19 +45,29 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   tagsContainer: {
-    paddingVertical : 10, 
-    paddingHorizontal : 10, 
-    borderRadius : 10, 
+    margin : 10,
+    padding: 10,
+    borderRadius : 20, 
+    backgroundColor: "#ffff",
     alignItems: "center", 
-    width : 50,
+    width : 100,
     alignSelf: "center", 
     marginVertical: 10
   },
   tagTitle :{
-    fontSize : 22,
+    fontSize : 18,
     fontWeight: "500", 
     color : "#414141", 
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
+  titleStyle :{
+    fontSize : 50,
+    fontWeight: "500", 
+    color : "#ffff", 
+    alignSelf: "center", 
+    paddingVertical : 5,
+  } ,
 })
+
+export default TagScreen
