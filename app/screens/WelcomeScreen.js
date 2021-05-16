@@ -9,7 +9,7 @@ function WelcomeScreen({ navigation }) {
         <View style={styles.button}>
           <Button 
             color="sienna"
-            title="Entrer"
+            title="Enter"
             onPress={() => navigation.navigate('Recipe')}/>
         </View>
       </ImageBackground>

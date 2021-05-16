@@ -1,16 +1,19 @@
 import React from 'react';
-import { Button, ImageBackground, StyleSheet, View } from 'react-native';
-import getRandomRecipe from "../client/requests";
+import { Button, ImageBackground, StyleSheet, View, SafeAreaView, ComponentProvider } from 'react-native';
+import RandomRecipe from "../client/RandomRecipe";
 
 function RecipeScreen({ navigation }) {
     return (
-    <ImageBackground 
+      <ImageBackground 
       style={styles.background}
       source={require('../assets/background.jpg')}>
+        <SafeAreaView>
+          <RandomRecipe/>
+        </SafeAreaView>
         <View style={styles.button}>
           <Button 
             color="sienna"
-            title="Retour"
+            title="Back"
             onPress={() => navigation.navigate('Welcome')}/>
         </View>
       </ImageBackground>
