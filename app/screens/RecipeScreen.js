@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, ImageBackground, StyleSheet, View } from 'react-native';
+import getRandomRecipe from "../client/requests";
 
-function WelcomeScreen({ navigation }) {
+function RecipeScreen({ navigation }) {
     return (
     <ImageBackground 
       style={styles.background}
@@ -9,8 +10,8 @@ function WelcomeScreen({ navigation }) {
         <View style={styles.button}>
           <Button 
             color="sienna"
-            title="Entrer"
-            onPress={() => navigation.navigate('Recipe')}/>
+            title="Retour"
+            onPress={() => navigation.navigate('Welcome')}/>
         </View>
       </ImageBackground>
   );
@@ -29,4 +30,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default WelcomeScreen;
+export default RecipeScreen;
