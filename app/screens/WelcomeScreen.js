@@ -1,23 +1,18 @@
 import React from 'react';
-import { Button, ImageBackground, StyleSheet, View } from 'react-native';
+import { Text, TouchableOpacity, ImageBackground, StyleSheet, View } from 'react-native';
 
 function WelcomeScreen({ navigation }) {
     return (
     <ImageBackground 
       style={styles.background}
       source={require('../assets/background.jpg')}>
-        <View style={styles.button}>
-          <Button 
-            color="#fb9300"
-            title="Enter"
-            onPress={() => navigation.navigate('Recipe')}/>
-        </View>
-        <View style={styles.button}>
-          <Button 
-            color="#fb9300"
-            title="Tags"
-            onPress={() => navigation.navigate('Tags')}/>
-        </View>
+        <View style={{ marginVertical: 50 }}></View>
+        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Recipe')}>
+              <Text style = {styles.TextStyle} >Enter</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Tags')}>
+              <Text style = {styles.TextStyle}>Tags</Text>
+          </TouchableOpacity>
       </ImageBackground>
   );
 }
@@ -28,13 +23,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    width: 100,
-    height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 200,
-    borderRadius: 50
+    margin : 10,
+    padding: 10,
+    borderRadius : 10, 
+    backgroundColor:'#fb9300',
   },
+  TextStyle:{
+    color:'#fff',
+    fontSize : 22,
+    textAlign:'center',
+}
 })
 
 export default WelcomeScreen;
