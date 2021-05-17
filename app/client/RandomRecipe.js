@@ -8,12 +8,8 @@ class RandomRecipe extends Component {
 
   componentDidMount() {
     fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
-      .then((response) => {
-          return response.json()
-        })
-      .then((result) => {
-        this.setState({ data: result.recipes['0'] });
-      })
+      .then((response) => {return response.json()})
+      .then((result) => {this.setState({ data: result.recipes['0'] });})
   }
 
   render() {
