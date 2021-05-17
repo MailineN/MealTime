@@ -7,6 +7,8 @@ function WelcomeScreen({ navigation }) {
       style={styles.background}
       source={require('../assets/background.jpg')}>
         <View style={{ marginVertical: 50 }}></View>
+        <Text style={styles.titleStyle}>Recipe of The Day :
+        </Text>
         <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Test')}>
               <Text style = {styles.TextStyle} >Enter</Text>
           </TouchableOpacity>
@@ -32,7 +34,15 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontSize : 22,
     textAlign:'center',
-}
+  },
+  titleStyle :{
+    fontSize : 52,
+    fontWeight: 'bold', 
+    fontFamily : 'PlayfairDisplay-Regular',
+    color : "#170c42", 
+    alignSelf: "center", 
+    paddingVertical : 5,
+  } ,
 })
 
 export default WelcomeScreen;

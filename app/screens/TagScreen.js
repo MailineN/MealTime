@@ -66,16 +66,10 @@ function TagScreen({ navigation }) {
             </View>
         </View>
         <View style={{ marginVertical: 20 }}></View>
-        <Text style={tagStyles.selectedTagsStyle}>Selected tags: {veggie}, {vegan}, {dairy}, {protein}, {snack}, {dessert}
-          </Text>
-        <View style={{ marginVertical: 100 }}></View>
         
-        <View style={tagStyles.button}>
-            <Button 
-              color="#fb9300"
-              title="Back"
-              onPress={() => navigation.navigate('Welcome')}/>
-        </View>
+        <TouchableOpacity style = {tagStyles.button} onPress={() => navigation.navigate('Welcome')}>
+              <Text style = {tagStyles.backStyle} >Back</Text>
+          </TouchableOpacity>
         <View style={{ marginVertical: 20 }}></View>
       </SafeAreaView>
   );
@@ -83,16 +77,18 @@ function TagScreen({ navigation }) {
 
 const tagStyles = StyleSheet.create({
   background: {
+    flex : 1, 
     backgroundColor: "#faf9fb",
     alignItems: "center",
     justifyContent: "center",
   }, 
 
   button: {
-    width: '100%',
-    position: 'absolute',
-    bottom:25,
-    left:0,
+    margin : 10,
+    padding: 10,
+    width : 280,
+    borderRadius : 30, 
+    backgroundColor:'#fb9300',
   },
   tagsContainer: {
     margin : 10,
@@ -120,14 +116,13 @@ const tagStyles = StyleSheet.create({
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
-  selectedTagsStyle :{
-    fontSize : 15,
-    fontWeight: "500", 
+  backStyle :{
+    fontSize : 22,
+    fontWeight: 'bold', 
     color : "#ffff", 
     fontFamily : "Proxima Nova",
     alignSelf: "center", 
-    paddingVertical : 5,
-    margin :10
+    margin :5
   } ,
 })
 

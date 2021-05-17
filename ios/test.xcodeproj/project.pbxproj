@@ -30,6 +30,10 @@
 		A1148D712F924D3986BFCB29 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD173EFF8BA747A589CE8EBD /* Octicons.ttf */; };
 		21F1E5B5F97545A0B305CED9 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37D25760546746D6943C4D15 /* SimpleLineIcons.ttf */; };
 		51FA6B85228044E08639F704 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3DD82FC26284DD9A9DCB147 /* Zocial.ttf */; };
+		BFC7B420C71E4A1880CE6ECD /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2738ACE004407BAB815BD3 /* PlayfairDisplay-Regular.ttf */; };
+		6C045FDE2068453C87581BD2 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A40516C4DEC5417AB33ED394 /* PlayfairDisplay-Regular.ttf */; };
+		A847D68DA9274978B25501CB /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC44F2A94156429A91568025 /* Proxima Nova Bold.otf */; };
+		39550C374F624A79B1FFF5AE /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EA23B413846646F6B1B5D1E5 /* ProximaNova-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		CD173EFF8BA747A589CE8EBD /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		37D25760546746D6943C4D15 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		D3DD82FC26284DD9A9DCB147 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2C2738ACE004407BAB815BD3 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Regular.ttf"; path = "../app/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A40516C4DEC5417AB33ED394 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; name = "PlayfairDisplay-Regular.ttf"; path = "../assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CC44F2A94156429A91568025 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; name = "Proxima Nova Bold.otf"; path = "../assets/fonts/Proxima Nova Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EA23B413846646F6B1B5D1E5 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; name = "ProximaNova-Regular.otf"; path = "../assets/fonts/ProximaNova-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +190,10 @@
 				CD173EFF8BA747A589CE8EBD /* Octicons.ttf */,
 				37D25760546746D6943C4D15 /* SimpleLineIcons.ttf */,
 				D3DD82FC26284DD9A9DCB147 /* Zocial.ttf */,
+				2C2738ACE004407BAB815BD3 /* PlayfairDisplay-Regular.ttf */,
+				A40516C4DEC5417AB33ED394 /* PlayfairDisplay-Regular.ttf */,
+				CC44F2A94156429A91568025 /* Proxima Nova Bold.otf */,
+				EA23B413846646F6B1B5D1E5 /* ProximaNova-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -295,6 +307,10 @@
 				A1148D712F924D3986BFCB29 /* Octicons.ttf in Resources */,
 				21F1E5B5F97545A0B305CED9 /* SimpleLineIcons.ttf in Resources */,
 				51FA6B85228044E08639F704 /* Zocial.ttf in Resources */,
+				BFC7B420C71E4A1880CE6ECD /* PlayfairDisplay-Regular.ttf in Resources */,
+				6C045FDE2068453C87581BD2 /* PlayfairDisplay-Regular.ttf in Resources */,
+				A847D68DA9274978B25501CB /* Proxima Nova Bold.otf in Resources */,
+				39550C374F624A79B1FFF5AE /* ProximaNova-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
