@@ -1,6 +1,7 @@
 import React, { useState } from 'react' ;
 import { Text, Button, StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import LinearGradient from 'react-native-linear-gradient';
 
 function TagScreen({ navigation }) {
     const [Veggie, setVeggie] = useState('')
@@ -38,7 +39,7 @@ function TagScreen({ navigation }) {
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
                 <TouchableOpacity onPress={() => {setDairy('Dairy'); setDairyC("#fffbf5")}}>
-                <Text style = {tagStyles.tagTitle}>Dairy Free</Text>
+                <Text style = {tagStyles.tagTitle}>No Dairy</Text>
                 <Icon style={{textAlign: "center"}} name="cheese" size={30} color={dairyC} />
                 </TouchableOpacity>
             </View>
@@ -64,11 +65,18 @@ function TagScreen({ navigation }) {
             </View>
         </View>
         <View style={{ marginVertical: 20 }}></View>
-        <TouchableOpacity style = {tagStyles.button} onPress={() => navigation.navigate('Test')}>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Test')}>
+            <LinearGradient
+              colors={["#EC9F05", "#fb9300" ]}
+              style={tagStyles.button}
+            >
               <Text style = {tagStyles.backStyle} >Enter</Text>
+              </LinearGradient>
           </TouchableOpacity>
         <TouchableOpacity style = {tagStyles.backButton} onPress={() => navigation.navigate('Welcome')}>
-              <Text style = {[tagStyles.backStyle, {color : "#170c42"}]} >Back</Text>
+            
+              <Text style = {[tagStyles.backStyle, {color : "#170c42"}]} >Back</Text> 
+              
           </TouchableOpacity>
         <View style={{ marginVertical: 20 }}></View>
       </SafeAreaView>
@@ -87,9 +95,9 @@ const tagStyles = StyleSheet.create({
     padding: 10,
     width : 280,
     borderRadius : 30, 
-    backgroundColor:'#fb9300',
-    position: 'absolute',
-    bottom: 100,
+    // backgroundColor:'#fb9300',
+    //position: 'absolute',
+    //bottom: 100,
   },
   backButton: {
     margin : 10,
@@ -101,6 +109,7 @@ const tagStyles = StyleSheet.create({
     borderColor:'#fb9300',
     position: 'absolute',
     bottom: 20,
+
   },
   tagsContainer: {
     margin : 10,
@@ -114,7 +123,7 @@ const tagStyles = StyleSheet.create({
     alignSelf: "center", 
   },
   tagTitle :{
-    fontSize : 20,
+    fontSize : 22,
     fontWeight: "500", 
     color : "#fffbf5", 
     fontFamily : "ProximaNova-Regular",

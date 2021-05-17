@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, ImageBackground, StyleSheet, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 function WelcomeScreen({ navigation }) {
     return (
@@ -10,11 +11,21 @@ function WelcomeScreen({ navigation }) {
           <Text style={styles.titleStyle}>It's meal time!</Text>
         </View>
         
-        <TouchableOpacity style = {styles.enterButton} onPress={() => navigation.navigate('Recipe')}>
-        <Text style={styles.TextStyle}>Enter </Text>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe')}>
+          <LinearGradient
+              colors={["#EC9F05", "#fb9300" ]}
+              style={styles.enterButton}
+            >
+            <Text style={styles.TextStyle}>Enter </Text>
+          </LinearGradient>
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.tagButton} onPress={() => navigation.navigate('Tags')}>
-          <Text style = {styles.TextStyle}>Tags</Text>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 20,}} onPress={() => navigation.navigate('Tags')}>
+        <LinearGradient
+              colors={["#EC9F05", "#fb9300" ]}
+              style={styles.enterButton}
+            >
+          <Text style = {styles.TextStyle}>More filters</Text>
+          </LinearGradient>
         </TouchableOpacity>
     </ImageBackground>
   );
@@ -30,9 +41,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width : 280,
     borderRadius : 30, 
-    backgroundColor:'#fb9300',
-    position: 'absolute',
-    bottom: 100,
+    backgroundColor:'#fb9300'
   },
   title: {
     position: 'absolute',
@@ -51,6 +60,7 @@ const styles = StyleSheet.create({
   TextStyle:{
     color:'#fff',
     fontSize : 22,
+    fontWeight: "bold",
     fontFamily : "ProximaNova-Regular",
     textAlign:'center',
     margin :5
