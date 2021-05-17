@@ -3,20 +3,19 @@ import { Text, Button, StyleSheet, View, SafeAreaView, TouchableOpacity } from '
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function TagScreen({ navigation }) {
-    const [veggie, setVeggie] = useState('')
-    const [vegan, setVegan] = useState('')
-    const [dairy, setdairy] = useState('')
-    const [protein, setProtein] = useState('')
-    const [snack, setSnack] = useState('')
-    const [dessert, setDessert] = useState('')
+    const [Veggie, setVeggie] = useState('')
+    const [Vegan, setVegan] = useState('')
+    const [Dairy, setDairy] = useState('')
+    const [Protein, setProtein] = useState('')
+    const [Snack, setSnack] = useState('')
+    const [Dessert, setDessert] = useState('')
 
     const [veggieC, setVeggieC] = useState('#ffba9b')
     const [veganC, setVeganC] = useState('#ffba9b')
-    const [dairyC, setdairyC] = useState('#ffba9b')
+    const [dairyC, setDairyC] = useState('#ffba9b')
     const [proteinC, setProteinC] = useState('#ffba9b')
     const [snackC, setSnackC] = useState('#ffba9b')
     const [dessertC, setDessertC] = useState('#ffba9b')
-
     return (
       <SafeAreaView style={tagStyles.background}>
         <View style={{ marginVertical: 20 }}></View>
@@ -39,9 +38,9 @@ function TagScreen({ navigation }) {
         </View>
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
-                <TouchableOpacity onPress={() => {setdairy('Dairy'); setdairyC("#fffbf5")}}>
+                <TouchableOpacity onPress={() => {setDairy('Dairy'); setDairyC("#fffbf5")}}>
                 <Text style = {tagStyles.tagTitle}>Dairy Free</Text>
-                <Icon style={{textAlign: "center"}} name="wine-bottle" size={30} color={dairyC} />
+                <Icon style={{textAlign: "center"}} name="cheese" size={30} color={dairyC} />
                 </TouchableOpacity>
             </View>
             <View style ={[tagStyles.tagsContainer]}>
