@@ -10,12 +10,12 @@ function TagScreen({ navigation }) {
     const [snack, setSnack] = useState('')
     const [dessert, setDessert] = useState('')
 
-    const [veggieC, setVeggieC] = useState('#929292')
-    const [veganC, setVeganC] = useState('#929292')
-    const [dairyC, setdairyC] = useState('#929292')
-    const [proteinC, setProteinC] = useState('#929292')
-    const [snackC, setSnackC] = useState('#929292')
-    const [dessertC, setDessertC] = useState('#929292')
+    const [veggieC, setVeggieC] = useState('#ffba9b')
+    const [veganC, setVeganC] = useState('#ffba9b')
+    const [dairyC, setdairyC] = useState('#ffba9b')
+    const [proteinC, setProteinC] = useState('#ffba9b')
+    const [snackC, setSnackC] = useState('#ffba9b')
+    const [dessertC, setDessertC] = useState('#ffba9b')
 
     return (
       <SafeAreaView style={tagStyles.background}>
@@ -25,13 +25,13 @@ function TagScreen({ navigation }) {
         <View style={{ marginVertical: 20 }}></View>
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
-                <TouchableOpacity onPress={()=>{setVeggie('Vegetarian'); setVeggieC("#414141")}}>
+                <TouchableOpacity onPress={()=>{setVeggie('Vegetarian'); setVeggieC("#fffbf5")}}>
                     <Text style = {tagStyles.tagTitle}>Veggie</Text>
                     <Icon style={{textAlign: "center"}} name="carrot" size={30} color={veggieC} />
                 </TouchableOpacity>
             </View>
             <View style ={[tagStyles.tagsContainer]}>
-                <TouchableOpacity onPress={() => {setVegan('Vegan'); setVeganC("#414141")}} >
+                <TouchableOpacity onPress={() => {setVegan('Vegan'); setVeganC("#fffbf5")}} >
                     <Text style = {tagStyles.tagTitle}>Vegan</Text>
                     <Icon style={{textAlign: "center"}} name="leaf" size={30} color={veganC} />
                 </TouchableOpacity>
@@ -39,13 +39,13 @@ function TagScreen({ navigation }) {
         </View>
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
-                <TouchableOpacity onPress={() => {setdairy('Dairy'); setdairyC("#414141")}}>
+                <TouchableOpacity onPress={() => {setdairy('Dairy'); setdairyC("#fffbf5")}}>
                 <Text style = {tagStyles.tagTitle}>Dairy Free</Text>
                 <Icon style={{textAlign: "center"}} name="wine-bottle" size={30} color={dairyC} />
                 </TouchableOpacity>
             </View>
             <View style ={[tagStyles.tagsContainer]}>
-            <TouchableOpacity onPress={() => {setProtein('main course'); setProteinC("#414141")}}>
+            <TouchableOpacity onPress={() => {setProtein('main course'); setProteinC("#fffbf5")}}>
                 <Text style = {tagStyles.tagTitle}>Fitness Friendly</Text>
                 <Icon style={{textAlign: "center"}} name="dumbbell" size={30} color={proteinC} />
                 </TouchableOpacity>
@@ -53,13 +53,13 @@ function TagScreen({ navigation }) {
         </View>
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
-            <TouchableOpacity onPress={() => {setSnack('snack'); setSnackC("#414141")}}>
+            <TouchableOpacity onPress={() => {setSnack('snack'); setSnackC("#fffbf5")}}>
                 <Text style = {tagStyles.tagTitle}>Snack</Text>
                 <Icon style={{textAlign: "center"}} name="candy-cane" size={30} color={snackC} />
                 </TouchableOpacity>
             </View>
             <View style ={[tagStyles.tagsContainer]}>
-            <TouchableOpacity onPress={() => {setDessert('dessert'); setDessertC("#414141")}} >
+            <TouchableOpacity onPress={() => {setDessert('dessert'); setDessertC("#fffbf5")}} >
                 <Text style = {tagStyles.tagTitle}>Dessert</Text>
                 <Icon style={{textAlign: "center"}} name="birthday-cake" size={30} color={dessertC} />
                 </TouchableOpacity>
@@ -72,7 +72,7 @@ function TagScreen({ navigation }) {
         
         <View style={tagStyles.button}>
             <Button 
-              color="sienna"
+              color="#fb9300"
               title="Back"
               onPress={() => navigation.navigate('Welcome')}/>
         </View>
@@ -83,7 +83,7 @@ function TagScreen({ navigation }) {
 
 const tagStyles = StyleSheet.create({
   background: {
-    backgroundColor: "#e09c2c",
+    backgroundColor: "#faf9fb",
     alignItems: "center",
     justifyContent: "center",
   }, 
@@ -98,7 +98,7 @@ const tagStyles = StyleSheet.create({
     margin : 10,
     padding: 10,
     borderRadius : 20, 
-    backgroundColor: "#ffff",
+    backgroundColor: "#fb9300",
     alignItems: "center",
     justifyContent:"center", 
     width : 100,
@@ -107,14 +107,14 @@ const tagStyles = StyleSheet.create({
   tagTitle :{
     fontSize : 18,
     fontWeight: "500", 
-    color : "#414141", 
+    color : "#fffbf5", 
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
   titleStyle :{
     fontSize : 50,
     fontWeight: "500", 
-    color : "#ffff", 
+    color : "#170c42", 
     alignSelf: "center", 
     paddingVertical : 5,
   } ,

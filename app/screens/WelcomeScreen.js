@@ -8,13 +8,13 @@ function WelcomeScreen({ navigation }) {
       source={require('../assets/background.jpg')}>
         <View style={styles.button}>
           <Button 
-            color="sienna"
+            color="#fb9300"
             title="Enter"
             onPress={() => navigation.navigate('Recipe')}/>
         </View>
         <View style={styles.button}>
           <Button 
-            color="sienna"
+            color="#fb9300"
             title="Tags"
             onPress={() => navigation.navigate('Tags')}/>
         </View>
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    top: 200
+    top: 200,
+    borderRadius: 50
   },
 })
 
