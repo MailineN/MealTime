@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import RecipeScreen from './app/screens/RecipeScreen'; 
 import TagScreen from './app/screens/TagScreen'
+import Recipe from './app/client/Recipe';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,10 @@ export default function App () {
         <Stack.Screen
           name="Tags"
           component={TagScreen}
+          options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Test"
+          component={Recipe}
           options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>

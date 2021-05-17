@@ -10,7 +10,7 @@ function RecipeScreen({ navigation }) {
         </View>
         <View style={styles.button}>
             <Button 
-              color="sienna"
+              color="#fb9300"
               title="Back"
               onPress={() => navigation.navigate('Welcome')}/>
         </View>
@@ -21,7 +21,7 @@ function RecipeScreen({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#faf9fb",
     justifyContent: "flex-end",
     alignItems: "center",
   },

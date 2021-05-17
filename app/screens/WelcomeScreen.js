@@ -7,7 +7,7 @@ function WelcomeScreen({ navigation }) {
       style={styles.background}
       source={require('../assets/background.jpg')}>
         <View style={{ marginVertical: 50 }}></View>
-        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Recipe')}>
+        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Test')}>
               <Text style = {styles.TextStyle} >Enter</Text>
           </TouchableOpacity>
           <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Tags')}>

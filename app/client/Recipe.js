@@ -1,0 +1,76 @@
+import React, { useState } from 'react' ;
+import { Text, StyleSheet, View, SafeAreaView, TouchableOpacity, ScrollView, Image } from 'react-native';
+
+function Recipe({ navigation }) {
+    return (
+        <ScrollView>
+            <Image source={{uri: "https://www.recettes-de-cuisine-de-chef.fr/wp-content/uploads/2014/11/logo-recettes-cuisine-chef.png"}}/>
+            <View style={recipeStyle.titleContainer}>
+                <Text style={recipeStyle.title}>
+                    Miam miam les cookies !
+                </Text>
+            </View>
+            <View style={recipeStyle.partContainer}>
+                <Text style={recipeStyle.partTitle}>
+                    Ingrédients :
+                </Text>
+            </View>
+            <View style={recipeStyle.partContainer}>
+                <Text style={recipeStyle.partTitle}>
+                    Instructions :
+                </Text>
+            </View>
+            <View style={recipeStyle.descriptionContainer}>
+                <Text style={recipeStyle.description}>
+                    Pour des cookies de qualité, il faut surtout bien équilibré la farine en en mettant un peu plus.
+                </Text>
+            </View>
+            <View style={recipeStyle.titleContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+                    <Text style={recipeStyle.title}>
+                        Back
+                    </Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
+    )
+}
+
+const recipeStyle = StyleSheet.create({
+    titleContainer: {
+        padding: 10,
+        marginTop: 20,
+        marginHorizontal: 20,
+        borderRadius : 20, 
+        backgroundColor: "#fb9300",
+        alignItems: "center",
+        justifyContent:"center",
+    },
+    title: {
+        fontSize : 25,
+        fontWeight: "500", 
+        color : "#fffbf5", 
+        alignSelf: "center", 
+    },
+    partContainer: {
+        marginTop: 20,
+        marginHorizontal: 20,
+        borderRadius : 20,
+    },
+    partTitle: {
+        fontSize : 25,
+        fontWeight: "bold",
+        color: "black",
+    },
+    descriptionContainer: {
+        marginTop: 5,
+        marginHorizontal: 20,
+        borderRadius : 20,
+    },
+    description: {
+        fontSize : 20,
+        fontWeight: "500",
+    },
+})
+
+export default Recipe;
