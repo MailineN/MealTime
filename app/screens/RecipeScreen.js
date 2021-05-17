@@ -4,7 +4,7 @@ import getRecipe from '../client/getRecipe';
 
 function Recipe({ navigation }) {
     const [name, setTitle] = useState('')
-    setTitle(getRecipe(643471).title)
+    setTitle(getRecipe(64).title)
 
     return (
         <ScrollView>

@@ -7,9 +7,9 @@ function getRandomRecipe() {
 
     fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
         .then((response) => {return response.json()})
-        .then((result) => {setId(result['0'].id)});
+        .then((result) => {setId(result['0'].id)})
 
-    setData(getRecipe({ id }))
+    setData(getRecipe(id))
 
     return data
 }
