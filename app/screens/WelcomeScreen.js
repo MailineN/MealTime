@@ -5,9 +5,12 @@ function WelcomeScreen({ navigation }) {
     return (
     <ImageBackground 
       style={styles.background}
-      source={require('../assets/background.jpg')}>
-        <View style={{ marginVertical: 50 }}></View>
-        <Text style={styles.titleStyle}>Recipe of The Day : </Text>
+      source={require('../assets/background2.jpg')}>
+        <View style={{ marginVertical: 290 }}></View>
+        <View style={{alignItems: 'center'}}>
+          <Text style={styles.titleStyle}>It's meal time!</Text>
+        </View>
+        
         <TouchableOpacity style = {styles.enterButton} onPress={() => navigation.navigate('Recipe')}>
         <Text style={styles.TextStyle}>Enter </Text>
         </TouchableOpacity>
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
     borderRadius : 30, 
     backgroundColor:'#fb9300',
     position: 'absolute',
-    bottom: 90,
+    bottom: 100,
   },
   tagButton: {
     margin : 10,
@@ -39,19 +42,21 @@ const styles = StyleSheet.create({
     borderRadius : 30, 
     backgroundColor:'#fb9300',
     position: 'absolute',
-    bottom: 10,
+    bottom: 20,
   },
   TextStyle:{
     color:'#fff',
     fontSize : 22,
+    fontFamily : "ProximaNova-Regular",
     textAlign:'center',
     margin :5
   },
   titleStyle :{
-    fontSize : 52,
-    fontWeight: 'bold', 
+    fontSize :60,
+    textAlign: 'center',
+    fontWeight: '900', 
     fontFamily: "PlayfairDisplay-Regular",
-    color : "#170c42", 
+    color : "#faf9fb", 
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
