@@ -8,11 +8,10 @@ function WelcomeScreen({ navigation }) {
       source={require('../assets/background.jpg')}>
         <View style={{ marginVertical: 50 }}></View>
         <Text style={styles.titleStyle}>Recipe of The Day : </Text>
-        <View style={{ marginVertical: 200 }}></View>
-        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Recipe')}>
+        <TouchableOpacity style = {styles.enterButton} onPress={() => navigation.navigate('Recipe')}>
         <Text style={styles.TextStyle}>Enter </Text>
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Tags')}>
+        <TouchableOpacity style = {styles.tagButton} onPress={() => navigation.navigate('Tags')}>
           <Text style = {styles.TextStyle}>Tags</Text>
         </TouchableOpacity>
     </ImageBackground>
@@ -24,12 +23,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
-  button: {
+  enterButton: {
     margin : 10,
     padding: 10,
     width : 280,
     borderRadius : 30, 
     backgroundColor:'#fb9300',
+    position: 'absolute',
+    bottom: 90,
+  },
+  tagButton: {
+    margin : 10,
+    padding: 10,
+    width : 280,
+    borderRadius : 30, 
+    backgroundColor:'#fb9300',
+    position: 'absolute',
+    bottom: 10,
   },
   TextStyle:{
     color:'#fff',
