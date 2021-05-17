@@ -6,8 +6,7 @@ function WelcomeScreen({ navigation }) {
     <ImageBackground 
       style={styles.background}
       source={require('../assets/background2.jpg')}>
-        <View style={{ marginVertical: 290 }}></View>
-        <View style={{alignItems: 'center'}}>
+        <View style={styles.title}>
           <Text style={styles.titleStyle}>It's meal time!</Text>
         </View>
         
@@ -34,6 +33,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#fb9300',
     position: 'absolute',
     bottom: 100,
+  },
+  title: {
+    position: 'absolute',
+    bottom: 170,
+    alignItems: 'center'
   },
   tagButton: {
     margin : 10,
