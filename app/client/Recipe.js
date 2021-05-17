@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, SafeAreaView, TouchableOpacity, ScrollView, Ima
 function Recipe({ navigation }) {
     return (
         <ScrollView>
-            <Image source={{uri: "https://www.recettes-de-cuisine-de-chef.fr/wp-content/uploads/2014/11/logo-recettes-cuisine-chef.png"}}/>
+            <Image source={{uri: "https://spoonacular.com/recipeImages/715420-556x370.jpg"}}/>
             <View style={recipeStyle.titleContainer}>
                 <Text style={recipeStyle.title}>
                     Miam miam les cookies !
