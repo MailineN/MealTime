@@ -18,10 +18,9 @@ function TagScreen({ navigation }) {
     const [dessertC, setDessertC] = useState('#ffba9b')
     return (
       <SafeAreaView style={tagStyles.background}>
-        <View style={{ marginVertical: 20 }}></View>
         <Text style={tagStyles.titleStyle}>Choose your tags :
         </Text>
-        <View style={{ marginVertical: 20 }}></View>
+        <View style={{ marginVertical: 10 }}></View>
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer]}>
                 <TouchableOpacity onPress={()=>{setVeggie('Vegetarian'); setVeggieC("#fffbf5")}}>
@@ -89,6 +88,8 @@ const tagStyles = StyleSheet.create({
     width : 280,
     borderRadius : 30, 
     backgroundColor:'#fb9300',
+    position: 'absolute',
+    bottom: 100,
   },
   backButton: {
     margin : 10,
@@ -98,6 +99,8 @@ const tagStyles = StyleSheet.create({
     backgroundColor:'#faf9fb',
     borderWidth: 2,
     borderColor:'#fb9300',
+    position: 'absolute',
+    bottom: 20,
   },
   tagsContainer: {
     margin : 10,
@@ -125,6 +128,9 @@ const tagStyles = StyleSheet.create({
     color : "#170c42", 
     alignSelf: "center", 
     paddingVertical : 5,
+    position: 'absolute',
+    top: 20
+    
   } ,
   backStyle :{
     fontSize : 22,
