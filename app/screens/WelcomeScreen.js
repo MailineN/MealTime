@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
   button: {
     margin : 10,
     padding: 10,
-    borderRadius : 10, 
+    width : 280,
+    borderRadius : 30, 
     backgroundColor:'#fb9300',
   },
   TextStyle:{
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   titleStyle :{
     fontSize : 52,
     fontWeight: 'bold', 
-    fontFamily : 'PlayfairDisplay-Regular',
+    fontFamily: "PlayfairDisplay-Regular",
     color : "#170c42", 
     alignSelf: "center", 
     paddingVertical : 5,
