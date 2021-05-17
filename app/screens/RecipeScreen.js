@@ -1,13 +1,17 @@
 import React, { useState } from 'react' ;
 import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image } from 'react-native';
+import getRecipe from '../client/getRecipe';
 
 function Recipe({ navigation }) {
+    const [name, setTitle] = useState('')
+    setTitle(getRecipe(643471).title)
+
     return (
         <ScrollView>
             <Image source={{uri: "https://spoonacular.com/recipeImages/715420-556x370.jpg"}}/>
             <View style={recipeStyle.titleContainer}>
                 <Text style={recipeStyle.title}>
-                    Miam miam les cookies !
+                    {name}
                 </Text>
             </View>
             <View style={recipeStyle.partContainer}>

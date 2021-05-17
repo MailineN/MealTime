@@ -1,6 +1,6 @@
 import { useState } from 'react' ;
 
-function getRandomId({ tag }) {
+function getRandomId(tag) {
     const [data, setData] = useState('')
     const [index, setIndex] = useState('')
     const [id, setId] = useState('')
