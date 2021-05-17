@@ -7,8 +7,10 @@ function WelcomeScreen({ navigation }) {
       style={styles.background}
       source={require('../assets/background.jpg')}>
         <View style={{ marginVertical: 50 }}></View>
-        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Recipe')}>
         <Text style={styles.titleStyle}>Recipe of The Day : </Text>
+        <View style={{ marginVertical: 200 }}></View>
+        <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Recipe')}>
+        <Text style={styles.TextStyle}>Enter </Text>
         </TouchableOpacity>
         <TouchableOpacity style = {styles.button} onPress={() => navigation.navigate('Tags')}>
           <Text style = {styles.TextStyle}>Tags</Text>
@@ -33,6 +35,7 @@ const styles = StyleSheet.create({
     color:'#fff',
     fontSize : 22,
     textAlign:'center',
+    margin :5
   },
   titleStyle :{
     fontSize : 52,

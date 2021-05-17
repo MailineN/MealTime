@@ -46,7 +46,7 @@ function TagScreen({ navigation }) {
             </View>
             <View style ={[tagStyles.tagsContainer]}>
             <TouchableOpacity onPress={() => {setProtein('main course'); setProteinC("#fffbf5")}}>
-                <Text style = {tagStyles.tagTitle}>Fitness Friendly</Text>
+                <Text style = {tagStyles.tagTitle}>Fit</Text>
                 <Icon style={{textAlign: "center"}} name="dumbbell" size={30} color={proteinC} />
                 </TouchableOpacity>
             </View>
@@ -66,9 +66,11 @@ function TagScreen({ navigation }) {
             </View>
         </View>
         <View style={{ marginVertical: 20 }}></View>
-        
-        <TouchableOpacity style = {tagStyles.button} onPress={() => navigation.navigate('Welcome')}>
-              <Text style = {tagStyles.backStyle} >Back</Text>
+        <TouchableOpacity style = {tagStyles.button} onPress={() => navigation.navigate('Test')}>
+              <Text style = {tagStyles.backStyle} >Enter</Text>
+          </TouchableOpacity>
+        <TouchableOpacity style = {tagStyles.backButton} onPress={() => navigation.navigate('Welcome')}>
+              <Text style = {[tagStyles.backStyle, {color : "#170c42"}]} >Back</Text>
           </TouchableOpacity>
         <View style={{ marginVertical: 20 }}></View>
       </SafeAreaView>
@@ -82,7 +84,6 @@ const tagStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   }, 
-
   button: {
     margin : 10,
     padding: 10,
@@ -90,28 +91,38 @@ const tagStyles = StyleSheet.create({
     borderRadius : 30, 
     backgroundColor:'#fb9300',
   },
+  backButton: {
+    margin : 10,
+    padding: 10,
+    width : 280,
+    borderRadius : 30, 
+    backgroundColor:'#faf9fb',
+    borderWidth: 2,
+    borderColor:'#fb9300',
+  },
   tagsContainer: {
     margin : 10,
     padding: 10,
+    width : 120,
+    height : 120, 
     borderRadius : 20, 
     backgroundColor: "#fb9300",
     alignItems: "center",
     justifyContent:"center", 
-    width : 100,
     alignSelf: "center", 
   },
   tagTitle :{
-    fontSize : 18,
+    fontSize : 20,
     fontWeight: "500", 
     color : "#fffbf5", 
-    fontFamily : "Proxima Nova",
+    fontFamily : "ProximaNova-Regular",
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
   titleStyle :{
     fontSize : 52,
     fontWeight: 'bold', 
-    fontFamily : "Proxima Nova",
+    fontFamily : "ProximaNova-Regular",
     color : "#170c42", 
     alignSelf: "center", 
     paddingVertical : 5,
@@ -120,7 +131,7 @@ const tagStyles = StyleSheet.create({
     fontSize : 22,
     fontWeight: 'bold', 
     color : "#ffff", 
-    fontFamily : "Proxima Nova",
+    fontFamily : "ProximaNova-Regular",
     alignSelf: "center", 
     margin :5
   } ,
