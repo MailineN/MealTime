@@ -1,6 +1,7 @@
-import React, { useState } from 'react' ;
+import React, { useEffect, useState } from 'react' ;
 import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList } from 'react-native';
-import getRecipe from '../client/getRecipe';
+//import getRandomRecipe from '../client/getRandomRecipe';
+import LinearGradient from 'react-native-linear-gradient';
 
 function Recipe({ navigation }) {
     const [recipe, setRecipe] = useState({
@@ -355,7 +356,19 @@ function Recipe({ navigation }) {
             ]
         },
     })
-
+    useEffect(()=> {
+        let called = true;
+        fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
+        .then((response) => {return response.json()})
+        .then((items) => {
+            if (called) {
+                console.log(items.recipes["0"].title)
+                setRecipe(items.recipes["0"])
+            }
+        })
+        console.log(recipe.title)
+        return () => called = false;
+    }, [])
     return (
         <ScrollView>
             <Image source={{uri: "https://spoonacular.com/recipeImages/715420-556x370.jpg"}}/>
@@ -386,13 +399,15 @@ function Recipe({ navigation }) {
                     {recipe.instructions}
                 </Text>
             </View>
-            <View style={recipeStyle.titleContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
-                    <Text style={recipeStyle.title}>
-                        Back
-                    </Text>
-                </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+            <LinearGradient
+                colors={["#EC9F05", "#fb9300" ]}
+                style={recipeStyle.backButton}
+                >
+            <Text style = {recipeStyle.title}>Back</Text>
+            </LinearGradient>
+            </TouchableOpacity>
+            <View style={{ marginVertical: 10 }}></View>
         </ScrollView>
     )
 }
@@ -432,6 +447,16 @@ const recipeStyle = StyleSheet.create({
         fontSize : 20,
         fontWeight: "500",
     },
-})
+    backButton: {
+        margin : 10,
+        padding: 10,
+        width : 280,
+        borderRadius : 30, 
+        backgroundColor:'#faf9fb',
+        borderWidth: 2,
+        borderColor:'#fb9300',
+        //position: 'absolute',
+        //bottom: 20,
+    }})
 
 export default Recipe;

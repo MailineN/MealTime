@@ -37,8 +37,8 @@ function TagScreen({ navigation }) {
         <View style={{ flexDirection: "row" }}>
             <View style ={[tagStyles.tagsContainer, {backgroundColor: Category === 'Main' ? '#faf9fb' : "#fb9300"}]}>
             <TouchableOpacity onPress={() => setCategory('Main')}>
-                <Text style = {[tagStyles.tagTitle , {color: Category === 'Main' ? "#170c42": '#faf9fb'}]}>Fit</Text>
-                <Icon style={{textAlign: "center"}} name="dumbbell" size={35}  color =  {Category === 'Main' ? "#170c42": '#faf9fb'}/>
+                <Text style = {[tagStyles.tagTitle , {color: Category === 'Main' ? "#170c42": '#faf9fb'}]}>Main</Text>
+                <Icon style={{textAlign: "center"}} name="pizza-slice" size={35}  color =  {Category === 'Main' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
             <View style ={[tagStyles.tagsContainer, {backgroundColor:Category === 'Snack' ? '#faf9fb' : "#fb9300"}]}>
