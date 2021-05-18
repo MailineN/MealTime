@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react' ;
-import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList } from 'react-native';
+import React, { useEffect, useState, Dimensions } from 'react' ;
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, Share} from 'react-native';
 //import getRandomRecipe from '../client/getRandomRecipe';
 import LinearGradient from 'react-native-linear-gradient';
+import DropShadow from "react-native-drop-shadow";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 function Recipe({ navigation }) {
     const [recipe, setRecipe] = useState({
@@ -366,20 +368,70 @@ function Recipe({ navigation }) {
                 setRecipe(items.recipes["0"])
             }
         })
+        
         console.log(recipe.title)
         return () => called = false;
     }, [])
     return (
         <ScrollView>
-            <Image source={{uri: "https://spoonacular.com/recipeImages/715420-556x370.jpg"}}/>
-            <View style={recipeStyle.titleContainer}>
-                <Text style={recipeStyle.title}>
-                    {recipe.title}
-                </Text>
+            <View style={{ flexDirection: "row", justifyContent:'space-between' }}>
+            <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                }}
+                >
+                <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => navigation.navigate('Welcome')}>
+                    <Icon style={{textAlign: "center"}} name="chevron-left" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+                </DropShadow>
+
+                <DropShadow
+                    style={{
+                        shadowColor: "#000",
+                        shadowOffset: {
+                        width: 0,
+                        height: 0,
+                        },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 3,
+                    }}
+                    >
+                <TouchableOpacity style = {[recipeStyle.backUpperButton]} onPress={() => Share.share({
+                    url : recipe.sourceUrl, 
+                    message: "Here is an awesome recipe!" })}>
+                    <Icon style={{textAlign: "center"}} name="share-alt" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+                </DropShadow>
+            
+            </View>
+            <Text style={recipeStyle.title}>
+                {recipe.title}
+            </Text>
+            <View style={{ marginVertical: 15 }}></View>
+            <View style={{ justifyContent: 'center', alignItems: 'center'}}>
+                        <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.2,
+                    shadowRadius: 10,
+                }}
+                >
+                <Image style={recipeStyle.image} source={{uri: recipe.image}}/> 
+                </DropShadow>
             </View>
             <View style={recipeStyle.partContainer}>
                 <Text style={recipeStyle.partTitle}>
-                    Ingrédients :
+                    Ingredients :
                 </Text>
             </View>
             <View style={recipeStyle.descriptionContainer}>
@@ -395,16 +447,16 @@ function Recipe({ navigation }) {
                 </Text>
             </View>
             <View style={recipeStyle.descriptionContainer}>
-                <Text style={recipeStyle.description}>
-                    {recipe.instructions}
-                </Text>
+                <FlatList
+                    data={recipe.instructions.split(".")}
+                    renderItem={({item}) => <Text style={recipeStyle.description}>{item}</Text>}/>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+            <TouchableOpacity style={{ alignItems: 'center', }} onPress={() => navigation.navigate('Welcome')}>
             <LinearGradient
                 colors={["#EC9F05", "#fb9300" ]}
                 style={recipeStyle.backButton}
                 >
-            <Text style = {recipeStyle.title}>Back</Text>
+            <Text style = {[recipeStyle.backButtonText]}>Back</Text>
             </LinearGradient>
             </TouchableOpacity>
             <View style={{ marginVertical: 10 }}></View>
@@ -423,10 +475,12 @@ const recipeStyle = StyleSheet.create({
         justifyContent:"center",
     },
     title: {
-        fontSize : 25,
-        fontWeight: "500", 
-        color : "#fffbf5", 
+        fontSize : 32,
+        fontWeight: "bold", 
+        color : "#170c42", 
         alignSelf: "center", 
+        fontFamily : "ProximaNova Bold",
+        marginHorizontal : 15
     },
     partContainer: {
         marginTop: 20,
@@ -437,6 +491,7 @@ const recipeStyle = StyleSheet.create({
         fontSize : 25,
         fontWeight: "bold",
         color: "black",
+        fontFamily : "ProximaNova-Regular",
     },
     descriptionContainer: {
         marginTop: 5,
@@ -445,18 +500,41 @@ const recipeStyle = StyleSheet.create({
     },
     description: {
         fontSize : 20,
-        fontWeight: "500",
+        fontFamily : "ProximaNova-Regular",
+    },
+    backButtonText: {
+        fontSize : 25,
+        fontWeight: "bold", 
+        color : "#ffff", 
+        alignSelf: "center", 
+        fontFamily : "ProximaNova Bold",
+        marginHorizontal : 15
     },
     backButton: {
         margin : 10,
-        padding: 10,
+        padding: 8,
         width : 280,
         borderRadius : 30, 
         backgroundColor:'#faf9fb',
-        borderWidth: 2,
-        borderColor:'#fb9300',
         //position: 'absolute',
         //bottom: 20,
-    }})
+    },
+    backUpperButton: {
+        marginHorizontal : 28,
+        marginVertical : 10,
+        padding: 10,
+        width : 45,
+        height : 45,
+        borderRadius : 10, 
+        //position: 'absolute',
+        //bottom: 20,
+    },
+    image: {
+        width: 380,
+        height: 200,
+        padding: 10,
+        borderRadius: 30,
+      }
+    })
 
 export default Recipe;
