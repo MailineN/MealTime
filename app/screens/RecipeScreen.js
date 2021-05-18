@@ -368,13 +368,13 @@ function Recipe({ navigation }) {
                 <Text style={recipeStyle.partTitle}>
                     Ingrédients :
                 </Text>
-                <View>
-                    <FlatList
-                        data={recipe.extendedIngredients}
-                        renderItem={({item}) => <Text style={recipeStyle.description}>
-                            {item.measures.metric.amount} {item.measures.metric.unitLong} {item.name.charAt(0).toUpperCase()}{item.name.substring(1).toLowerCase()}
-                            </Text>}/>
-                </View>
+            </View>
+            <View style={recipeStyle.descriptionContainer}>
+                <FlatList
+                    data={recipe.extendedIngredients}
+                    renderItem={({item}) => <Text style={recipeStyle.description}>
+                        {item.measures.metric.amount} {item.measures.metric.unitLong} {item.name.charAt(0).toUpperCase()}{item.name.substring(1).toLowerCase()}
+                        </Text>}/>
             </View>
             <View style={recipeStyle.partContainer}>
                 <Text style={recipeStyle.partTitle}>
