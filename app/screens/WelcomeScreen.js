@@ -11,7 +11,7 @@ function WelcomeScreen({ navigation }) {
           <Text style={styles.titleStyle}>It's meal time!</Text>
         </View>
         
-        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe')}>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe',{tags : ""})}>
           <LinearGradient
               colors={["#EC9F05", "#fb9300" ]}
               style={styles.enterButton}
@@ -19,13 +19,8 @@ function WelcomeScreen({ navigation }) {
             <Text style={styles.TextStyle}>Enter </Text>
           </LinearGradient>
         </TouchableOpacity>
-        <TouchableOpacity style = {{position: 'absolute',bottom: 20,}} onPress={() => navigation.navigate('Tags')}>
-        <LinearGradient
-              colors={["#EC9F05", "#fb9300" ]}
-              style={styles.enterButton}
-            >
+        <TouchableOpacity style = {styles.backButton} onPress={() => navigation.navigate('Tags')}>
           <Text style = {styles.TextStyle}>More filters</Text>
-          </LinearGradient>
         </TouchableOpacity>
     </ImageBackground>
   );
@@ -74,6 +69,18 @@ const styles = StyleSheet.create({
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
+  backButton: {
+    margin : 10,
+    padding: 10,
+    width : 280,
+    borderRadius : 30, 
+    backgroundColor:'rgba(72,75,85,.2)',
+    borderWidth: 2,
+    borderColor:'#fb9300',
+    position: 'absolute',
+    bottom: 20,
+
+  },
 })
 
 export default WelcomeScreen;

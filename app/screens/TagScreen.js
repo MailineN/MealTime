@@ -1,5 +1,5 @@
 import React, { useState } from 'react' ;
-import { Text, Button, StyleSheet, View, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Text, Button, StyleSheet, View, SafeAreaView, TouchableOpacity,ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -7,26 +7,30 @@ function TagScreen({ navigation }) {
     const [Diet, setDiet] = useState('')
     const [Category, setCategory] = useState('')
     return (
-      <SafeAreaView style={tagStyles.background}>
+      <ImageBackground 
+      style={tagStyles.background}
+      source={require('../assets/background2.jpg')}
+      blurRadius={50}>
+        <View style={{ marginVertical: 40 }}></View>
         <Text style={tagStyles.titleStyle}>Pick a diet ...</Text>
         <View style={{ marginVertical: 10 }}></View>
         <View style={{ flexDirection: "row" }}>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'Vegetarian' ? '#faf9fb' : "#fb9300"}]}>
-                <TouchableOpacity onPress={()=>setDiet('Vegetarian')}>
-                    <Text style = {[tagStyles.tagTitle , {color: Diet === 'Vegetarian' ? "#170c42": '#faf9fb'}]}>Veggie</Text>
-                    <Icon style={{textAlign: "center"}} name="carrot" size={35} color = {Diet === 'Vegetarian' ? "#170c42": '#faf9fb'}/>
+            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'vegetarian' ? '#faf9fb' : "#fb9300"}]}>
+                <TouchableOpacity onPress={()=>setDiet('vegetarian')}>
+                    <Text style = {[tagStyles.tagTitle , {color: Diet === 'vegetarian' ? "#170c42": '#faf9fb'}]}>Veggie</Text>
+                    <Icon style={{textAlign: "center", margin : 4}} name="carrot" size={32} color = {Diet === 'vegetarian' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'Vegan' ? '#faf9fb' : "#fb9300"}]}>
-                <TouchableOpacity onPress={() => setDiet('Vegan')} >
-                    <Text style = {[tagStyles.tagTitle , {color: Diet === 'Vegan' ? "#170c42": '#faf9fb'}]}>Vegan</Text>
-                    <Icon style={{textAlign: "center"}} name="leaf" size={35} color =  {Diet === 'Vegan' ? "#170c42": '#faf9fb'}/>
+            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'vegan' ? '#faf9fb' : "#fb9300"}]}>
+                <TouchableOpacity onPress={() => setDiet('vegan')} >
+                    <Text style = {[tagStyles.tagTitle , {color: Diet === 'vegan' ? "#170c42": '#faf9fb'}]}>Vegan</Text>
+                    <Icon style={{textAlign: "center", margin : 4}} name="leaf" size={32} color =  {Diet === 'vegan' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'Dairy' ? '#faf9fb' : "#fb9300"}]}>
-                <TouchableOpacity onPress={() => setDiet('Dairy')}>
-                <Text style = {[tagStyles.tagTitle , {color: Diet === 'Dairy' ? "#170c42": '#faf9fb'}]}>Dairy</Text>
-                <Icon style={{textAlign: "center"}} name="cheese" size={35}  color =  {Diet === 'Dairy' ? "#170c42": '#faf9fb'}/>
+            <View style ={[tagStyles.tagsContainer, {backgroundColor: Diet === 'dairy' ? '#faf9fb' : "#fb9300"}]}>
+                <TouchableOpacity onPress={() => setDiet('dairy')}>
+                <Text style = {[tagStyles.tagTitle , {color: Diet === 'dairy' ? "#170c42": '#faf9fb'}]}>Dairy</Text>
+                <Icon style={{textAlign: "center", margin : 4}} name="cheese" size={32}  color =  {Diet === 'dairy' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
         </View>
@@ -35,27 +39,27 @@ function TagScreen({ navigation }) {
         </Text>
         <View style={{ marginVertical: 10 }}></View>
         <View style={{ flexDirection: "row" }}>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor: Category === 'Main' ? '#faf9fb' : "#fb9300"}]}>
-            <TouchableOpacity onPress={() => setCategory('Main')}>
-                <Text style = {[tagStyles.tagTitle , {color: Category === 'Main' ? "#170c42": '#faf9fb'}]}>Main</Text>
-                <Icon style={{textAlign: "center"}} name="pizza-slice" size={35}  color =  {Category === 'Main' ? "#170c42": '#faf9fb'}/>
+            <View style ={[tagStyles.tagsContainer, {backgroundColor: Category === 'breakfast' ? '#faf9fb' : "#fb9300"}]}>
+            <TouchableOpacity onPress={() => setCategory('breakfast')}>
+                <Text style = {[tagStyles.tagTitle , {color: Category === 'breakfast' ? "#170c42": '#faf9fb'}]}>Breakfast</Text>
+                <Icon style={{textAlign: "center", margin : 4}} name="bread-slice" size={32}  color =  {Category === 'breakfast' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor:Category === 'Snack' ? '#faf9fb' : "#fb9300"}]}>
-            <TouchableOpacity onPress={() =>  setCategory('Snack')}>
-                <Text style = {[tagStyles.tagTitle , {color: Category === 'Snack' ? "#170c42": '#faf9fb'}]}>Snack</Text>
-                <Icon style={{textAlign: "center"}} name="candy-cane" size={35}color =  {Category === 'Snack' ? "#170c42": '#faf9fb'} />
+            <View style ={[tagStyles.tagsContainer, {backgroundColor:Category === 'snack' ? '#faf9fb' : "#fb9300"}]}>
+            <TouchableOpacity onPress={() =>  setCategory('snack')}>
+                <Text style = {[tagStyles.tagTitle , {color: Category === 'snack' ? "#170c42": '#faf9fb'}]}>Snack</Text>
+                <Icon style={{textAlign: "center", margin : 4}} name="candy-cane" size={32}color =  {Category === 'snack' ? "#170c42": '#faf9fb'} />
                 </TouchableOpacity>
             </View>
-            <View style ={[tagStyles.tagsContainer, {backgroundColor: Category === 'Dessert' ? '#faf9fb' : "#fb9300"}]}>
-            <TouchableOpacity onPress={() =>  setCategory('Dessert')} >
-                <Text style = {[tagStyles.tagTitle , {color: Category === 'Dessert' ? "#170c42": '#faf9fb'}]}>Dessert</Text>
-                <Icon style={{textAlign: "center"}} name="birthday-cake" size={35} color = {Category === 'Dessert' ? "#170c42": '#faf9fb'}/>
+            <View style ={[tagStyles.tagsContainer, {backgroundColor: Category === 'dessert' ? '#faf9fb' : "#fb9300"}]}>
+            <TouchableOpacity onPress={() =>  setCategory('dessert')} >
+                <Text style = {[tagStyles.tagTitle , {color: Category === 'dessert' ? "#170c42": '#faf9fb'}]}>Dessert</Text>
+                <Icon style={{textAlign: "center", margin : 4}} name="birthday-cake" size={32} color = {Category === 'dessert' ? "#170c42": '#faf9fb'}/>
                 </TouchableOpacity>
             </View>
         </View>
         <View style={{ marginVertical: 20 }}></View>
-        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Test')}>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe', {tags : "&tags="+ Diet+","+Category})}>
             <LinearGradient
               colors={["#EC9F05", "#fb9300" ]}
               style={tagStyles.button}
@@ -65,21 +69,19 @@ function TagScreen({ navigation }) {
           </TouchableOpacity>
         <TouchableOpacity style = {tagStyles.backButton} onPress={() => navigation.navigate('Welcome')}>
             
-              <Text style = {[tagStyles.backStyle, {color : "#170c42"}]} >Back</Text> 
+              <Text style = {[tagStyles.backStyle]} >Back</Text> 
               
           </TouchableOpacity>
         <View style={{ marginVertical: 20 }}></View>
-      </SafeAreaView>
+      </ImageBackground>
   );
 }
 
 const tagStyles = StyleSheet.create({
   background: {
-    flex : 1, 
-    backgroundColor: "#faf9fb",
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-  }, 
+  },
   button: {
     margin : 10,
     padding: 10,
@@ -94,7 +96,7 @@ const tagStyles = StyleSheet.create({
     padding: 10,
     width : 280,
     borderRadius : 30, 
-    backgroundColor:'#faf9fb',
+    //backgroundColor:'#faf9fb',
     borderWidth: 2,
     borderColor:'#fb9300',
     position: 'absolute',
@@ -114,18 +116,18 @@ const tagStyles = StyleSheet.create({
     alignSelf: "center", 
   },
   tagTitle :{
-    fontSize : 20,
+    fontSize : 17,
     fontWeight: "800", 
     color : "#fffbf5", 
     fontFamily : "ProximaNova-Regular",
-    alignSelf: "center", 
-    paddingVertical : 5
+    textAlign: 'left',
+    //paddingVertical : 5
   } ,
   titleStyle :{
     fontSize : 45,
-    fontWeight: 'bold', 
-    fontFamily : "ProximaNova-Regular",
-    color : "#170c42", 
+    fontWeight: '900', 
+    fontFamily : "PlayfairDisplay-Regular",
+    color : '#faf9fb', 
     textAlign: 'left',
     paddingVertical : 5,
     

@@ -5,7 +5,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-function Recipe({ navigation }) {
+
+function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({
         "id": 716429,
         "title": "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs",
@@ -360,14 +361,26 @@ function Recipe({ navigation }) {
     })
     useEffect(()=> {
         let called = true;
-        fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
-        .then((response) => {return response.json()})
-        .then((items) => {
-            if (called) {
-                console.log(items.recipes["0"].title)
-                setRecipe(items.recipes["0"])
-            }
-        })
+        console.log(route.params.tags)
+        {route.params.tags.length > 8 ? 
+            fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072'+route.params.tags)
+            .then((response) => {return response.json()})
+            .then((items) => {
+                if (called) {
+                    console.log(items.recipes["0"].title)
+                    setRecipe(items.recipes["0"])
+                }
+            }): 
+            fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
+            .then((response) => {return response.json()})
+            .then((items) => {
+                if (called) {
+                    console.log(items.recipes["0"].title)
+                    setRecipe(items.recipes["0"])
+                }
+            })
+        }
+
         
         console.log(recipe.title)
         return () => called = false;
@@ -402,9 +415,9 @@ function Recipe({ navigation }) {
                         shadowRadius: 3,
                     }}
                     >
-                <TouchableOpacity style = {[recipeStyle.backUpperButton]} onPress={() => Share.share({
+                <TouchableOpacity style = {[recipeStyle.backUpperButton]} onPress={() => {Share.share({
                     url : recipe.sourceUrl, 
-                    message: "Here is an awesome recipe!" })}>
+                    message: "Here is an awesome recipe!  "+ recipe.sourceUrl}); console.log(recipe.sourceUrl)}}>
                     <Icon style={{textAlign: "center"}} name="share-alt" size={22} color = "#170c42"/>
                 </TouchableOpacity>
                 </DropShadow>
@@ -437,9 +450,10 @@ function Recipe({ navigation }) {
             <View style={recipeStyle.descriptionContainer}>
                 <FlatList
                     data={recipe.extendedIngredients}
-                    renderItem={({item}) => <Text style={recipeStyle.description}>
-                        {item.measures.metric.amount} {item.measures.metric.unitLong} {item.name.charAt(0).toUpperCase()}{item.name.substring(1).toLowerCase()}
-                        </Text>}/>
+                    renderItem={({item}) => <Text style={[recipeStyle.description,{fontWeight: 'bold'}]}> {'\u2022' + " "}
+                        {item.measures.metric.amount} {item.measures.metric.unitLong }
+                        <Text style={[recipeStyle.description, {fontWeight: 'normal', textAlign: 'right'}]}> {item.name.charAt(0).toUpperCase()}{item.name.substring(1).toLowerCase()} </Text> </Text> 
+                        }/>
             </View>
             <View style={recipeStyle.partContainer}>
                 <Text style={recipeStyle.partTitle}>
@@ -486,9 +500,10 @@ const recipeStyle = StyleSheet.create({
         marginTop: 20,
         marginHorizontal: 20,
         borderRadius : 20,
+        padding: 15,
     },
     partTitle: {
-        fontSize : 25,
+        fontSize : 28,
         fontWeight: "bold",
         color: "black",
         fontFamily : "ProximaNova-Regular",
@@ -520,7 +535,7 @@ const recipeStyle = StyleSheet.create({
         //bottom: 20,
     },
     backUpperButton: {
-        marginHorizontal : 28,
+        marginHorizontal : 25,
         marginVertical : 10,
         padding: 10,
         width : 45,
