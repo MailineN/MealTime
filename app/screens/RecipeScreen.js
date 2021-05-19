@@ -463,7 +463,7 @@ function Recipe({ navigation, route }) {
             <View style={recipeStyle.descriptionContainer}>
                 <FlatList
                     data={recipe.instructions.split(".")}
-                    renderItem={({item}) => <Text style={recipeStyle.description}>{item}</Text>}/>
+                    renderItem={({item}) => <Text style={recipeStyle.description}>{item.replace(/<[^>]+>/g, "")}</Text>}/>
             </View>
             <TouchableOpacity style={{ alignItems: 'center', }} onPress={() => navigation.navigate('Welcome')}>
             <LinearGradient
