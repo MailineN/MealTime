@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -9,6 +10,7 @@ import RecipeScreen from './app/screens/RecipeScreen';
 const Stack = createStackNavigator();
 
 export default function App () {
+    StatusBar.setHidden(true);
     return (
     <NavigationContainer>
         <Stack.Navigator>

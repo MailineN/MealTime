@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Dimensions } from 'react' ;
-import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, Share} from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, Share, StatusBar} from 'react-native';
 //import getRandomRecipe from '../client/getRandomRecipe';
 import LinearGradient from 'react-native-linear-gradient';
 import DropShadow from "react-native-drop-shadow";
@@ -505,7 +505,7 @@ const recipeStyle = StyleSheet.create({
     partTitle: {
         fontSize : 28,
         fontWeight: "bold",
-        color: "black",
+        color: "#170c42",
         fontFamily : "ProximaNova-Regular",
     },
     descriptionContainer: {
@@ -535,7 +535,7 @@ const recipeStyle = StyleSheet.create({
         //bottom: 20,
     },
     backUpperButton: {
-        marginHorizontal : 25,
+        marginHorizontal : 10,
         marginVertical : 10,
         padding: 10,
         width : 45,
