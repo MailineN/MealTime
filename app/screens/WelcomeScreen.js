@@ -11,7 +11,7 @@ function WelcomeScreen({ navigation }) {
           <Text style={styles.titleStyle}>It's meal time!</Text>
         </View>
         
-        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe',{tags : ""})}>
+        <TouchableOpacity style = {{position: 'absolute',bottom: 100,}} onPress={() => navigation.navigate('Recipe',{tags : "",recipe : null})}>
           <LinearGradient
               colors={["#EC9F05", "#fb9300" ]}
               style={styles.enterButton}

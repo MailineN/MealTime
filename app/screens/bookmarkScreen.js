@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, 
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BookmarkList from '../components/bookmarkList'
 
 function Bookmark({ navigation}) {
     const [recipeList, setRL] = useState([]);
@@ -41,7 +42,9 @@ function Bookmark({ navigation}) {
             <View style={{ marginVertical: 10 }}></View>
             <FlatList
                 data={recipeList}
-                renderItem={({item}) => <Text> {item.title} </Text>}/>    
+                renderItem={({item}) => <TouchableOpacity onPress={() => navigation.navigate('Recipe', {tags : "",recipe : item})}>
+                    <BookmarkList item={item}/>
+                    </TouchableOpacity>}/>    
         </ScrollView>
     )
 }
@@ -55,7 +58,7 @@ const styles = StyleSheet.create({
         borderRadius : 10, 
     },
     titleStyle :{
-        fontSize : 45,
+        fontSize : 42,
         fontWeight: '900', 
         fontFamily : "PlayfairDisplay-Regular",
         color : '#170c42', 
