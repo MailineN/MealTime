@@ -5,14 +5,13 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Bookmark({ navigation}) {
-    let recipeList
+    const [recipeList, setRL] = useState([]);
     useEffect(async()=> {
         try {
-            await AsyncStorage.getItem('recipe');
-            console.log(response)
+            response = await AsyncStorage.getItem('recipe');
             if (response !== null) {
-                console.log(response)
-                recipeList = response
+                setRL(JSON.parse(response))
+                console.log(recipeList)
             }
 
           } catch (e) {
@@ -37,7 +36,12 @@ function Bookmark({ navigation}) {
                     <Icon style={{textAlign: "center"}} name="chevron-left" size={22} color = "#170c42"/>
                 </TouchableOpacity>
             </DropShadow>
-            <Text>{recipeList.toString()}</Text>
+            
+            <Text style={styles.titleStyle}>Saved Recipes</Text>
+            <View style={{ marginVertical: 10 }}></View>
+            <FlatList
+                data={recipeList}
+                renderItem={({item}) => <Text> {item.title} </Text>}/>    
         </ScrollView>
     )
 }
@@ -50,5 +54,15 @@ const styles = StyleSheet.create({
         height : 45,
         borderRadius : 10, 
     },
+    titleStyle :{
+        fontSize : 45,
+        fontWeight: '900', 
+        fontFamily : "PlayfairDisplay-Regular",
+        color : '#170c42', 
+        textAlign: 'left',
+        paddingVertical : 5,
+        marginHorizontal : 70,
+        
+      } ,
 })
 export default Bookmark

@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { showMessage, hideMessage } from "react-native-flash-message";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
+import { set } from 'react-native-reanimated';
 
 function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({
@@ -361,21 +362,30 @@ function Recipe({ navigation, route }) {
             ]
         },
     })
-
+    const [recipeList, setRL] = useState([]);
     const saveRecipe = async () => {
         showMessage({
             message: "Saved!",
             type: "info",
           });
-        try {
-
-            const jsonValue = JSON.stringify(recipe)
+        try { 
+            response = await AsyncStorage.getItem('recipe');
+            if (response !== null) {
+                setRL(JSON.parse(response))
+                console.log(recipeList.length)
+            }
+            setRL(recipeList.push(recipe))
+            console.log(recipeList)
+            const jsonValue = JSON.stringify(recipeList)
             await AsyncStorage.setItem('recipe', jsonValue)
           } catch (e) {
-            alert('Failed save recipe');
+            console.log('Failed save recipe');
+            console.log(e)
           }
-        
-        console.log(JSON.stringify(recipe))
+    }
+    let onScrollEnd = (e) => {
+        let pageNumber = Math.min(Math.max(Math.floor(e.nativeEvent.contentOffset.x / dimensions_width + 0.5) + 1, 0), listItems.length);
+        console.log(pageNumber); 
     }
     useEffect(()=> {
         let called = true;
@@ -448,21 +458,6 @@ function Recipe({ navigation, route }) {
                     shadowRadius: 2,
                 }}
                 >
-                <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => getData()}>
-                    <Icon style={{textAlign: "center"}} name="ad" size={22} color = "#170c42"/>
-                </TouchableOpacity>
-                </DropShadow>
-                <DropShadow
-                    style={{
-                        shadowColor: "#000",
-                        shadowOffset: {
-                        width: 0,
-                        height: 0,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 3,
-                    }}
-                    >
                 <TouchableOpacity style = {[recipeStyle.backUpperButton]} onPress={() => {Share.share({
                     url : recipe.sourceUrl, 
                     message: "Here is an awesome recipe!  "+ recipe.sourceUrl}); console.log(recipe.sourceUrl)}}>
@@ -497,6 +492,8 @@ function Recipe({ navigation, route }) {
             </View>
             <View style={recipeStyle.descriptionContainer}>
                 <FlatList
+                    pagingEnabled
+                    onMomentumScrollEnd={onScrollEnd}
                     data={recipe.extendedIngredients}
                     renderItem={({item}) => <Text style={[recipeStyle.description,{fontWeight: 'bold'}]}> {'\u2022' + " "}
                         {item.measures.metric.amount} {item.measures.metric.unitLong }
@@ -510,6 +507,8 @@ function Recipe({ navigation, route }) {
             </View>
             <View style={recipeStyle.descriptionContainer}>
                 <FlatList
+                    pagingEnabled
+                    onMomentumScrollEnd={onScrollEnd}
                     data={recipe.instructions.split(".")}
                     renderItem={({item}) => <Text style={recipeStyle.description}>{item.replace(/<[^>]+>/g, "")}</Text>}/>
             </View>
