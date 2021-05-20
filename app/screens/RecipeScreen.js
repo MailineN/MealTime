@@ -6,8 +6,6 @@ import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { showMessage, hideMessage } from "react-native-flash-message";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
-import { set } from 'react-native-reanimated';
 
 function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({})
@@ -16,6 +14,7 @@ function Recipe({ navigation, route }) {
         showMessage({
             message: "Saved!",
             type: "info",
+            backgroundColor:'#fb9300',
           });
         try { 
             response = await AsyncStorage.getItem('recipe');
@@ -66,7 +65,7 @@ function Recipe({ navigation, route }) {
     }, [])
     return (
         Object.keys(recipe).length > 0 ? 
-        <ScrollView>
+        <ScrollView style={{backgroundColor: "#ffff" }}>
             <View style={{ flexDirection: "row", justifyContent:'space-between' }}>
             <DropShadow
                 style={{
@@ -177,6 +176,21 @@ function Recipe({ navigation, route }) {
             <ImageBackground 
             style={recipeStyle.background}
             source={require('../assets/gummy-coffee.png')}>
+            <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                }}
+                >
+                <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => navigation.navigate('Welcome')}>
+                    <Icon style={{textAlign: "center"}} name="chevron-left" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+            </DropShadow>
                 <View style={{ marginVertical: 30 }}></View>
                 <Text style={recipeStyle.title}>No Data </Text>
             </ImageBackground>
@@ -190,15 +204,6 @@ const recipeStyle = StyleSheet.create({
         flex: 1,
         alignItems: "center",
       },
-    titleContainer: {
-        padding: 10,
-        marginTop: 20,
-        marginHorizontal: 20,
-        borderRadius : 20, 
-        backgroundColor: "#fb9300",
-        alignItems: "center",
-        justifyContent:"center",
-    },
     title: {
         fontSize : 32,
         fontWeight: '500', 
@@ -230,7 +235,7 @@ const recipeStyle = StyleSheet.create({
     },
     backButtonText: {
         fontSize : 25,
-        fontWeight: "bold", 
+        fontWeight: "900", 
         color : "#ffff", 
         alignSelf: "center", 
         fontFamily : "ProximaNova Bold",

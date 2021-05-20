@@ -22,7 +22,7 @@ function Bookmark({ navigation}) {
     }, [])
     return (
         Object.keys(recipeList).length >0 ?
-        <ScrollView>
+        <ScrollView style={{backgroundColor: "#ffff" }}>
             <DropShadow
                 style={{
                     shadowColor: "#000",

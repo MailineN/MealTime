@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, ImageBackground, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+
 function WelcomeScreen({ navigation }) {
     return (
     <ImageBackground 
@@ -24,7 +25,7 @@ function WelcomeScreen({ navigation }) {
           <Text style = {[styles.TextStyle, {fontSize : 18,}]}>Filters</Text>
         </TouchableOpacity>
         <TouchableOpacity style = {styles.bottomButton} onPress={() => navigation.navigate('Bookmark')}>
-          <Text style = {[styles.TextStyle, {fontSize : 18,}]}>Bookmark</Text>
+          <Text style = {[styles.TextStyle, {fontSize : 18,}]}>Saved</Text>
         </TouchableOpacity>
         </View>
     </ImageBackground>
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     padding: 10,
     width : 130,
     borderRadius : 30, 
-    backgroundColor:'rgba(72,75,85,.2)',
+    backgroundColor:'rgba(72,75,85,.25)',
     borderWidth: 2,
     borderColor:'#fb9300',
 

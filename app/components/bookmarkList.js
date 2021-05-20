@@ -20,7 +20,7 @@ const listStyles = StyleSheet.create(
         width : 350,
         alignSelf: "center", 
         marginVertical: 10, 
-        backgroundColor: "#e2e2ec",
+        backgroundColor: "#e6e6ee",
         borderRadius: 10,
       },
   
