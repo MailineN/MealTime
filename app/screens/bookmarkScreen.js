@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Dimensions } from 'react' ;
-import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList,Linking} from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList,Linking, ImageBackground} from 'react-native';
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -21,6 +21,7 @@ function Bookmark({ navigation}) {
           }
     }, [])
     return (
+        Object.keys(recipeList).length >0 ?
         <ScrollView>
             <DropShadow
                 style={{
@@ -46,6 +47,13 @@ function Bookmark({ navigation}) {
                     <BookmarkList item={item}/>
                     </TouchableOpacity>}/>    
         </ScrollView>
+        :
+        <ImageBackground 
+            style={styles.background}
+            source={require('../assets/gummy-coffee.png')}>
+                <View style={{ marginVertical: 30 }}></View>
+                <Text style={styles.titleStyle}>No Data </Text>
+            </ImageBackground>
     )
 }
 const styles = StyleSheet.create({
@@ -67,5 +75,9 @@ const styles = StyleSheet.create({
         marginHorizontal : 70,
         
       } ,
+    background: {
+    flex: 1,
+    alignItems: "center",
+    },
 })
 export default Bookmark
