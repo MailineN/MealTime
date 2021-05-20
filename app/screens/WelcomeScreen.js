@@ -19,9 +19,14 @@ function WelcomeScreen({ navigation }) {
             <Text style={styles.TextStyle}>Enter </Text>
           </LinearGradient>
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.backButton} onPress={() => navigation.navigate('Tags')}>
-          <Text style = {styles.TextStyle}>More filters</Text>
+        <View style={{ flexDirection: "row" , position: 'absolute', bottom: 20,}}>
+        <TouchableOpacity style = {styles.bottomButton} onPress={() => navigation.navigate('Tags')}>
+          <Text style = {[styles.TextStyle, {fontSize : 18,}]}>Filters</Text>
         </TouchableOpacity>
+        <TouchableOpacity style = {styles.bottomButton} onPress={() => navigation.navigate('Bookmark')}>
+          <Text style = {[styles.TextStyle, {fontSize : 18,}]}>Bookmark</Text>
+        </TouchableOpacity>
+        </View>
     </ImageBackground>
   );
 }
@@ -69,16 +74,14 @@ const styles = StyleSheet.create({
     alignSelf: "center", 
     paddingVertical : 5,
   } ,
-  backButton: {
+  bottomButton: {
     margin : 10,
     padding: 10,
-    width : 280,
+    width : 130,
     borderRadius : 30, 
     backgroundColor:'rgba(72,75,85,.2)',
     borderWidth: 2,
     borderColor:'#fb9300',
-    position: 'absolute',
-    bottom: 20,
 
   },
 })

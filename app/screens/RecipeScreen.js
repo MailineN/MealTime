@@ -5,6 +5,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { showMessage, hideMessage } from "react-native-flash-message";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({
@@ -365,6 +367,14 @@ function Recipe({ navigation, route }) {
             message: "Saved!",
             type: "info",
           });
+        try {
+
+            const jsonValue = JSON.stringify(recipe)
+            await AsyncStorage.setItem('recipe', jsonValue)
+          } catch (e) {
+            alert('Failed save recipe');
+          }
+        
         console.log(JSON.stringify(recipe))
     }
     useEffect(()=> {
@@ -427,7 +437,21 @@ function Recipe({ navigation, route }) {
                     <Icon style={{textAlign: "center"}} name="heart" size={22} color = "#170c42"/>
                 </TouchableOpacity>
                 </DropShadow>
-
+                <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                }}
+                >
+                <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => getData()}>
+                    <Icon style={{textAlign: "center"}} name="ad" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+                </DropShadow>
                 <DropShadow
                     style={{
                         shadowColor: "#000",
@@ -565,8 +589,6 @@ const recipeStyle = StyleSheet.create({
         width : 45,
         height : 45,
         borderRadius : 10, 
-        //position: 'absolute',
-        //bottom: 20,
     },
     image: {
         width: 380,
