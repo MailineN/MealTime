@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import TagScreen from './app/screens/TagScreen'
 import RecipeScreen from './app/screens/RecipeScreen';
+import FlashMessage from "react-native-flash-message";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,8 @@ export default function App () {
           component={RecipeScreen}
           options={{ headerShown: false }}/>
       </Stack.Navigator>
+      <FlashMessage position="top" />
     </NavigationContainer>
+    
     );
 }

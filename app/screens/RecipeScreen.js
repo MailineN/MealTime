@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, 
 import LinearGradient from 'react-native-linear-gradient';
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({
@@ -359,8 +359,17 @@ function Recipe({ navigation, route }) {
             ]
         },
     })
+
+    const saveRecipe = async () => {
+        showMessage({
+            message: "Saved!",
+            type: "info",
+          });
+        console.log(JSON.stringify(recipe))
+    }
     useEffect(()=> {
         let called = true;
+
         console.log(route.params.tags)
         {route.params.tags.length > 8 ? 
             fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072'+route.params.tags)
@@ -401,6 +410,21 @@ function Recipe({ navigation, route }) {
                 >
                 <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => navigation.navigate('Welcome')}>
                     <Icon style={{textAlign: "center"}} name="chevron-left" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+                </DropShadow>
+                <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                }}
+                >
+                <TouchableOpacity style = {recipeStyle.backUpperButton} onPress={() => saveRecipe()}>
+                    <Icon style={{textAlign: "center"}} name="heart" size={22} color = "#170c42"/>
                 </TouchableOpacity>
                 </DropShadow>
 
