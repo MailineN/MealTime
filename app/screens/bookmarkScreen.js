@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Dimensions } from 'react' ;
-import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList, Share, StatusBar} from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, ScrollView, Image, FlatList,Linking} from 'react-native';
 import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -42,7 +42,7 @@ function Bookmark({ navigation}) {
             <View style={{ marginVertical: 10 }}></View>
             <FlatList
                 data={recipeList}
-                renderItem={({item}) => <TouchableOpacity onPress={() => navigation.navigate('Recipe', {tags : "",recipe : item})}>
+                renderItem={({item}) => <TouchableOpacity onPress={()=>{ Linking.openURL(item.sourceUrl)}}>
                     <BookmarkList item={item}/>
                     </TouchableOpacity>}/>    
         </ScrollView>
