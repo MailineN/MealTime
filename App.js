@@ -13,10 +13,18 @@ import Panda from './app/screens/panda';
 const Stack = createStackNavigator();
 
 export default function App () {
+    const forFade = ({ current }) => ({
+      cardStyle: {
+        opacity: current.progress,
+      },
+    });
     StatusBar.setHidden(true);
     return (
     <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerShown: false,
+            cardStyleInterpolator: forFade,
+        }}>
         <Stack.Screen
           name="Welcome"
           component={WelcomeScreen}
