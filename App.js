@@ -7,7 +7,8 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import TagScreen from './app/screens/TagScreen'
 import RecipeScreen from './app/screens/RecipeScreen';
 import FlashMessage from "react-native-flash-message";
-import Bookmark from './app/screens/bookmarkScreen'
+import Bookmark from './app/screens/bookmarkScreen'; 
+import Panda from './app/screens/panda';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,10 @@ export default function App () {
         <Stack.Screen
           name="Bookmark"
           component={Bookmark}
+          options={{ headerShown: false }}/>
+        <Stack.Screen
+          name="Panda"
+          component={Panda}
           options={{ headerShown: false }}/>
       </Stack.Navigator>
       <FlashMessage position="top" />

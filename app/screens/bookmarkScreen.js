@@ -23,6 +23,7 @@ function Bookmark({ navigation}) {
     return (
         Object.keys(recipeList).length >0 ?
         <ScrollView style={{backgroundColor: "#ffff" }}>
+            <View style={{ flexDirection: "row", justifyContent:'space-between' }}>
             <DropShadow
                 style={{
                     shadowColor: "#000",
@@ -38,7 +39,22 @@ function Bookmark({ navigation}) {
                     <Icon style={{textAlign: "center"}} name="chevron-left" size={22} color = "#170c42"/>
                 </TouchableOpacity>
             </DropShadow>
-            
+            <DropShadow
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                    width: 0,
+                    height: 0,
+                    },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 2,
+                }}
+                >
+                <TouchableOpacity style = {styles.backUpperButton} onPress={() => navigation.navigate('Panda')}>
+                    <Icon style={{textAlign: "center"}} name="paw" size={22} color = "#170c42"/>
+                </TouchableOpacity>
+            </DropShadow>
+            </View>
             <Text style={styles.titleStyle}>Saved Recipes</Text>
             <View style={{ marginVertical: 10 }}></View>
             <FlatList
