@@ -6,10 +6,12 @@ import DropShadow from "react-native-drop-shadow";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { showMessage, hideMessage } from "react-native-flash-message";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {REACT_APP_API_KEY} from "@env"
 
 function Recipe({ navigation, route }) {
     const [recipe, setRecipe] = useState({})
     const [recipeList, setRL] = useState([]);
+    const url = 'https://api.spoonacular.com/recipes/random?apiKey='+REACT_APP_API_KEY
     const saveRecipe = async () => {
         showMessage({
             message: "Saved!",
@@ -37,10 +39,10 @@ function Recipe({ navigation, route }) {
     }
     useEffect(()=> {
         let called = true;
-
+        console.log(url)
         console.log(route.params.tags)
         {route.params.tags.length > 8 ? 
-            fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072'+route.params.tags)
+            fetch(url+route.params.tags)
             .then((response) => {return response.json()})
             .then((items) => {
                 if (called) {
@@ -48,7 +50,7 @@ function Recipe({ navigation, route }) {
                     setRecipe(items.recipes["0"])
                 }
             }): 
-            fetch('https://api.spoonacular.com/recipes/random?apiKey=5323d8a091244877b5e9332e144d9072')
+            fetch(url)
             .then((response) => {return response.json()})
             .then((items) => {
                 if (called) {
