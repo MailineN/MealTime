@@ -2,7 +2,7 @@
 Made with react-native
 
 ## Screenshots
-![alt text](https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105335.jpg | width=150)
-![alt text](https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105352.jpg | width=150)
-![alt text](https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105348.jpg | width=150)
-![alt text](https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105401.jpg | width=150)
+<img width="200" alt="Home" src="https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105335.jpg">
+<img width="200" alt="Home" src="https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105352.jpg">
+<img width="200" alt="Home" src="https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105348.jpg">
+<img width="200" alt="Home" src="https://raw.githubusercontent.com/MailineN/MealTime/master/Screenshot_20210522-105401.jpg">
